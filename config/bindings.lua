@@ -18,7 +18,7 @@ local keys = {
    { key = 'p', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateCommandPalette },
    { key = 'g', mods = 'CTRL', action = act.SendKey { key = 'Escape' } },
    { key = 'h', mods = mod.SUPER,  action = act.SendString '\u{17}', }, -- Send Ctrl + Backspace to powershell
-
+   
    -- misc/useful --
    { key = 'F1', mods = 'NONE', action = 'ActivateCopyMode' },
    { key = 'F2', mods = 'NONE', action = act.ActivateCommandPalette },
@@ -177,6 +177,18 @@ local keys = {
 
 -- stylua: ignore
 local key_tables = {
+   copy_mode = {
+      { key = 'f', mods = mod.SUPER, action = act.CopyMode 'MoveForwardWord' },
+      { key = 'b', mods = mod.SUPER, action = act.CopyMode 'MoveBackwardWord' },
+      { key = 'b', mods = 'CTRL', action = act.CopyMode 'MoveLeft' },
+      { key = 'f', mods = 'CTRL', action = act.CopyMode 'MoveRight' },
+      { key = 'p', mods = 'CTRL', action = act.CopyMode 'MoveUp' },
+      { key = 'n', mods = 'CTRL', action = act.CopyMode 'MoveDown' },
+      { key = 'a', mods = 'CTRL', action = act.CopyMode 'MoveToStartOfLine', },
+      { key = 'e', mods = 'CTRL', action = act.CopyMode 'MoveToEndOfLineContent', },
+      { key = 'Escape', action = act.CopyMode 'Close' },
+      { key = 'g',  mods = 'CTRL',    action = act.CopyMode 'Close' },
+   },
    resize_font = {
       { key = 'k',      action = act.IncreaseFontSize },
       { key = 'j',      action = act.DecreaseFontSize },
@@ -196,7 +208,7 @@ local key_tables = {
    },
    search_mode = {
       { key = 'Escape', action = act.CopyMode 'Close' },
-      { key = 'g',  mods = 'CTRL',    action = act.CopyMode 'Close' },
+      { key = 'g',  mods = 'CTRL',  action = act.CopyMode 'Close' },
    },
 
 }
