@@ -14,7 +14,7 @@ end
 
 -- stylua: ignore
 local keys = {
-   { key = 'Tab', mods = 'CTRL', action = wezterm.action.ShowLauncher },
+   { key = 'Tab', mods = 'CTRL', action = wezterm.action.ShowLauncherArgs({ flags = 'LAUNCH_MENU_ITEMS' }) },
    { key = 'p', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateCommandPalette },
    { key = 'g', mods = 'CTRL', action = act.SendKey { key = 'Escape' } },
    { key = 'h', mods = mod.SUPER,  action = act.SendString '\u{17}', }, -- Send Ctrl + Backspace to powershell
