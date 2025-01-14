@@ -9,7 +9,6 @@ return {
          multiplexing = 'None',
          -- assume_shell = 'Posix'
       },
-      }
    },
 
    -- ref: https://wezfurlong.org/wezterm/multiplexing.html#unix-domains
@@ -18,8 +17,8 @@ return {
    -- ref: https://wezfurlong.org/wezterm/config/lua/WslDomain.html
    wsl_domains = {
       {
-         name = 'WSL:Debian',
-         distribution = 'Debian',
+         name = 'WSL:Ubuntu',
+         distribution = 'Ubuntu',
          username = 'nukoseer',
          default_cwd = '/home/nukoseer',
          -- default_prog = { 'fish', '-l' },
