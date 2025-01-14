@@ -14,6 +14,8 @@ end
 
 -- stylua: ignore
 local keys = {
+   { key = 'Tab', mods = 'CTRL', action = wezterm.action.ShowLauncher },
+   { key = 'p', mods = 'CTRL|SHIFT', action = wezterm.action.ActivateCommandPalette },
    { key = 'g', mods = 'CTRL', action = act.SendKey { key = 'Escape' } },
    { key = 'h', mods = mod.SUPER,  action = act.SendString '\u{17}', }, -- Send Ctrl + Backspace to powershell
 
@@ -70,6 +72,11 @@ local keys = {
    { key = ']',          mods = mod.SUPER,     action = act.ActivateTabRelative(1) },
    { key = '[',          mods = mod.SUPER_REV, action = act.MoveTabRelative(-1) },
    { key = ']',          mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
+   { key = '1',          mods = mod.SUPER_REV,     action = act.ActivateTab(0) },
+   { key = '2',          mods = mod.SUPER_REV,     action = act.ActivateTab(1) },
+   { key = '3',          mods = mod.SUPER_REV,     action = act.ActivateTab(2) },
+   { key = '4',          mods = mod.SUPER_REV,     action = act.ActivateTab(3) },
+   { key = '5',          mods = mod.SUPER_REV,     action = act.ActivateTab(4) },
 
    -- tab: title
    { key = '0',          mods = mod.SUPER,     action = act.EmitEvent('tabs.manual-update-tab-title') },

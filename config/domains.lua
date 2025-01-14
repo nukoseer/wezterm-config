@@ -2,13 +2,13 @@ return {
    -- ref: https://wezfurlong.org/wezterm/config/lua/SshDomain.html
    -- ssh_domains = {},
    ssh_domains = {
-      -- yazi's image preview on Windows will only work if launched via ssh from WSL
       {
-         name = 'wsl.ssh',
-         remote_address = 'localhost',
+         name = 'SSH:name',
+         remote_address = 'remote-address',
+	 username = 'name',
          multiplexing = 'None',
-         default_prog = { 'fish', '-l' },
-         assume_shell = 'Posix'
+         -- assume_shell = 'Posix'
+      },
       }
    },
 
@@ -18,11 +18,11 @@ return {
    -- ref: https://wezfurlong.org/wezterm/config/lua/WslDomain.html
    wsl_domains = {
       {
-         name = 'WSL:Ubuntu',
-         distribution = 'Ubuntu',
-         username = 'kevin',
-         default_cwd = '/home/kevin',
-         default_prog = { 'fish', '-l' },
+         name = 'WSL:Debian',
+         distribution = 'Debian',
+         username = 'nukoseer',
+         default_cwd = '/home/nukoseer',
+         -- default_prog = { 'fish', '-l' },
       },
    },
 }

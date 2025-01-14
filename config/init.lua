@@ -1,10 +1,36 @@
 local wezterm = require('wezterm')
 local mux = wezterm.mux
+local colors = require('colors.custom')
 
 -- Toggle fullscreen on startup
 wezterm.on('gui-startup', function(cmd)
   local tab, pane, window = mux.spawn_window(cmd or {})
   window:gui_window():toggle_fullscreen()
+end)
+
+wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_width)
+  local background = '#282c34' -- Default background
+  local foreground = '#ffffff' -- Default foreground
+
+  -- Customize background based on domain name
+  if tab.active_pane.domain_name == 'SSH:name' then
+    background = '#531ab6'
+  elseif tab.active_pane.domain_name == 'SSH:name' then
+    background = '#ee30a7'
+  elseif tab.active_pane.domain_name == 'WSL:Debian' or tab.active_pane.domain_name == 'local' then
+    background = '#6272a4'
+  end
+
+  -- Highlight active tabs
+  if tab.is_active then
+    background = colors.background -- Highlight active tab with a different color
+  end
+
+  return {
+    { Background = { Color = background } },
+    { Foreground = { Color = foreground } },
+    { Text = ' ' .. tab.active_pane.title .. ' ' },
+  }
 end)
 
 ---@class config
